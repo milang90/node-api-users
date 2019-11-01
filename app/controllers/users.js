@@ -18,7 +18,7 @@ const UsersController = {
         UsersModel.find(function(err, users){
             if(err) {
                 return res.status(500).send({
-                    message: 'Error obteniendo los users'
+                    message: 'Error obteniendo los usuario'
                 });
             }
             return res.status(200).send(users);
@@ -29,12 +29,12 @@ const UsersController = {
         UsersModel.findOne({_id: id}, function(err, users){
             if(err) {
                 return res.status(500).send({
-                    message: 'Se ha producido un error al obtener el users'
+                    message: 'Se ha producido un error al obtener el usuario'
                 });
             }
             if(!users) {
                 return res.status(404).send( {
-                    message: 'No tenemos este users'
+                    message: 'No tenemos este usuario'
                 });
             }
             return res.send(users);
@@ -45,7 +45,7 @@ const UsersController = {
         UsersModel.save(function(err, users){
             if(err) {
                 return res.status(500).send( {
-                    message: 'Error al guardar el users',
+                    message: 'Error al guardar el usuario',
                     error: err
                 });
             }
@@ -60,13 +60,13 @@ const UsersController = {
         UsersModel.findOne({_id: id}, function(err, users){
             if(err) {
                 return res.status(500).send({
-                    message: 'Se ha producido un error al guardar el users',
+                    message: 'Se ha producido un error al guardar el usuario',
                     error: err
                 });
             }
             if(!users) {
                 return res.status(404).send({
-                    message: 'No hemos encontrado el users'
+                    message: 'No hemos encontrado el usuario'
                 });
             }
             users.name = req.body.name;
@@ -74,12 +74,12 @@ const UsersController = {
             UsersModel.save(function(err, users){
             if(err) {
                 return res.status(500).send({
-                    message: 'Error al guardar el users'
+                    message: 'Error al guardar el usuario'
                 });
             }
             if(!users) {
                 return res.status(404).send({
-                    message: 'No hemos encontrado el users'
+                    message: 'No hemos encontrado el usuario'
                 });
             }
                 return res.status(201).send(users);
@@ -91,7 +91,7 @@ const UsersController = {
         UsersModel.findByIdAndRemove(id, function(err, users){
             if(err) {
                 return res.send(500, {
-                    message: 'No hemos encontrado el users'
+                    message: 'No hemos encontrado el usuario'
                 });
             }
             return res.status(201).send(users);

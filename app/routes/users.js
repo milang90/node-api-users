@@ -16,15 +16,15 @@ router.get('/:id', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    res.send({ message: 'Vas a añadir un users' });
+    UsersController.create(req, res);
 });
 
 router.put('/:id', function(req, res) {
-    res.send({ message: 'Vas a actualizar el users con id ' + req.params.id });
+    UsersController.update(req, res);
 });
 
 router.delete('/:id', function(req, res) {
-    res.send({ message: 'Vas a borrar el users con id ' + req.params.id});
+    UsersController.remove(req, res);
 });
 
 module.exports = router;
